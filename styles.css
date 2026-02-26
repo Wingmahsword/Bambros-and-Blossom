@@ -900,3 +900,61 @@ a {
 .footer-brand h2 .brand-co {
     margin-top: 0.1em;
 }
+
+/* Form Styles */
+.form-message {
+    font-size: 0.9rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-top: 0.75rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.form-message.success {
+    background-color: rgba(46, 125, 50, 0.1);
+    color: #2e7d32;
+    border: 1px solid rgba(46, 125, 50, 0.2);
+}
+
+.form-message.error {
+    background-color: rgba(211, 47, 47, 0.1);
+    color: #d32f2f;
+    border: 1px solid rgba(211, 47, 47, 0.2);
+}
+
+.investors .form-message.success {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #a5d6a7;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.investors .form-message.error {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ef9a9a;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Loader animation */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.btn-loader {
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.75s linear infinite;
+    text-indent: -9999px;
+    /* Hide text */
+    overflow: hidden;
+}

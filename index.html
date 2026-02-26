@@ -116,10 +116,17 @@
             </div>
 
             <div class="cta-wrapper text-center column-reveal offset-top">
-                <div class="email-capture">
-                    <input type="email" placeholder="Drop your email for the investment deck" required>
-                    <button type="submit" class="btn-primary">Request Deck</button>
-                </div>
+                <form class="email-capture inquiry-form" id="invest-form">
+                    <input type="hidden" name="access_key" value="23bbca74-6e96-4a48-99da-46d98395661b">
+                    <input type="hidden" name="subject" value="New Investment Deck Request">
+                    <input type="hidden" name="from_name" value="Bambros & Blossom Website">
+                    <input type="email" name="email" placeholder="Drop your email for the investment deck" required>
+                    <button type="submit" class="btn-primary" id="invest-submit">
+                        <span class="btn-text">Request Deck</span>
+                        <span class="btn-loader" style="display: none;">Wait...</span>
+                    </button>
+                </form>
+                <div class="form-message" id="invest-message" style="display: none; margin-top: 10px;"></div>
             </div>
         </div>
     </section>
@@ -141,10 +148,17 @@
                         <li><strong>Co-Benefits:</strong> Your purchase supports rural employment and ecological
                             restoration.</li>
                     </ul>
-                    <div class="email-capture">
-                        <input type="email" placeholder="Drop your email to discuss credits" required>
-                        <button type="submit" class="btn-outline">Speak with a Carbon Advisor</button>
-                    </div>
+                    <form class="email-capture inquiry-form" id="carbon-form">
+                        <input type="hidden" name="access_key" value="23bbca74-6e96-4a48-99da-46d98395661b">
+                        <input type="hidden" name="subject" value="Carbon Credits Inquiry">
+                        <input type="hidden" name="from_name" value="Bambros & Blossom Website">
+                        <input type="email" name="email" placeholder="Drop your email to discuss credits" required>
+                        <button type="submit" class="btn-outline" id="carbon-submit">
+                            <span class="btn-text">Speak with a Carbon Advisor</span>
+                            <span class="btn-loader" style="display: none;">Wait...</span>
+                        </button>
+                    </form>
+                    <div class="form-message" id="carbon-message" style="display: none; margin-top: 10px;"></div>
                 </div>
                 <!-- Interactive CO2 -> O2 Visual -->
                 <div class="split-visual column-reveal delay-1 glass-panel">

@@ -150,4 +150,50 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Form submission logic — Web3Forms
+    const inquiryForms = document.querySelectorAll('.inquiry-form');
+    inquiryForms.forEach(form => {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = form.querySelector('button[type="submit"]');
+            const btnText = btn.querySelector('.btn-text');
+            const btnLoader = btn.querySelector('.btn-loader');
+            const msgBox = form.nextElementSibling;
+
+            // Loading state
+            btn.disabled = true;
+            btnText.style.display = 'none';
+            btnLoader.style.display = 'inline-block';
+            msgBox.style.display = 'none';
+            msgBox.className = 'form-message';
+
+            try {
+                const formData = new FormData(form);
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    msgBox.textContent = 'Thank you! We have received your inquiry.';
+                    msgBox.classList.add('success');
+                    form.reset();
+                } else {
+                    msgBox.textContent = data.message || 'Something went wrong. Please try again.';
+                    msgBox.classList.add('error');
+                }
+            } catch (err) {
+                msgBox.textContent = 'Network error. Please try again later.';
+                msgBox.classList.add('error');
+            } finally {
+                btn.disabled = false;
+                btnText.style.display = 'inline-block';
+                btnLoader.style.display = 'none';
+                msgBox.style.display = 'block';
+            }
+        });
+    });
 });
