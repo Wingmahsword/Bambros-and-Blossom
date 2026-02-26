@@ -3,6 +3,7 @@
 @font-face {
     font-family: 'Dream Avenue';
     src: local('Dream Avenue'), local('DreamAvenue'),
+        url('./DreamAvenue.ttf') format('truetype'),
         url('./DreamAvenue.woff') format('woff');
     font-weight: normal;
     font-style: normal;
